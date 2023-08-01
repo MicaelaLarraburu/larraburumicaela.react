@@ -1,28 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Cart from './Cart';
+import CartWidget from './CartWidget';
 
 const NavBar = () => {
   return (
     <nav>
       <ul>
+        <li><Link to="/">Inicio</Link></li>
         <li>
-          <Link to="/">Inicio</Link>
+          <div>
+            <span>Productos</span>
+            <ul>
+              <li>
+                <Link to="/category/Mates">Mates</Link>
+              </li>
+              <li>
+                <Link to="/category/Accesorios">Accesorios</Link>
+              </li>
+            </ul>
+          </div>
         </li>
+        <li><Link to="/Contacto">Contacto</Link></li>
         <li>
-          <Link to="/productos">Productos</Link>
-        </li>
-        <li>
-          <Link to="/contacto">Contacto</Link>
-        </li>
-        <li>
-          <Link to="/acerca">Acerca de</Link>
+          <CartWidget />
         </li>
       </ul>
-      <Cart />
     </nav>
   );
 };
 
 export default NavBar;
-

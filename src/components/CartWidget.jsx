@@ -1,11 +1,11 @@
 import React from 'react';
 
 const CartWidget = () => {
-  const itemCount = 32   ; 
+  const itemCount = 8   ; 
 
   return (
     <div className="cart-widget">
-            <img src="./public/carrito.png" alt="Carrito" className="cart-icon" />
+            <img src="./carrito.png" alt="Carrito" className="cart-icon" />
 
       {itemCount > 0 && <span className="item-count">{itemCount}</span>} {/* Notificación con el número fijo */}
     </div>

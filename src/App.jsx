@@ -1,34 +1,25 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import Home from './components/home';
-import Productos from './components/Productos'; // Importa el componente Productos 
-import Contacto from './components/Contacto'; // Importa el componente Contacto 
-import Acerca from './components/Acerca'; // Importa el componente Acerca 
-import Catalogo from './components/Catalogo';
-import DetalleProducto from './components/DetalleProducto';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import Contact from './components/Contacto';
+import './App.css';
+
 
 const App = () => {
-
-  
-   const categorias = [
-    { id: 1, nombre: 'Categoría 1' },
-    { id: 2, nombre: 'Categoría 2' },
-    { id: 3, nombre: 'Categoría 4' },
-  ];
-
   return (
-    <Router>
+    <BrowserRouter>
       <div>
-        <NavBar categorias={categorias} />
-        <Switch>
-          <Route exact path="/" component={ItemListContainer} />
-          <Route exact path="/category/:id" component={ItemListContainer} />
-          <Route exact path="/item/:id" component={ItemDetailContainer} />
-        </Switch>
+        <NavBar />
+        <Routes>
+          <Route exact path="/" element={<ItemListContainer greeting="¡Bienvenido!" />} />
+          <Route exact path="/category/:selectedCategory" element={<ItemListContainer greeting="¡Bienvenido!" />} />
+          <Route exact path="/item/:itemId" element={<ItemDetailContainer />} />
+          <Route exact path="/contacto" element={<Contact />} />
+        </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 
